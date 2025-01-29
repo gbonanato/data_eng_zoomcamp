@@ -1,0 +1,8 @@
+# Command to run postgres db on docker
+/lab01/postgres_on_docker.txt
+
+# Postgres local volume on host
+/lab01/ny_taxi_postgres_data
+
+# local csv files
+/lab01/*.csv
