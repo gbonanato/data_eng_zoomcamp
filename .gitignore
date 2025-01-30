@@ -6,3 +6,5 @@
 
 # local csv files
 /lab01/*.csv
+
+*.csv

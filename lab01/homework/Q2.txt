@@ -1,0 +1,7 @@
+The connection should be made to hostname 'db' and port '5432'. The reason for that is thaton a docker compose
+network, the name used for containers communication is the service name on the yaml file, and not the container_name.
+The container_name is only used as the name of the container for the host system.
+
+As for the port, the default port used for Postgres is port 5432. Therefore the pgadmin container should connect to port 5432.  
+Por 5433 is a wrong answer because it is only ther port mapped from the container port 5432 to the host system. When
+containers are on the same network they can communicate directly using the internal ports. 
