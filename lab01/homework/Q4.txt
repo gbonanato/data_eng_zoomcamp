@@ -1,0 +1,10 @@
+SELECT
+	MAX(gt.trip_distance) as "max_trip_day",
+	CAST(gt.lpep_dropoff_datetime AS DATE) as "start_day"
+	FROM green_taxi_trips as gt
+	WHERE CAST(gt.lpep_pickup_datetime AS DATE) >= '2019-10-01'
+	AND CAST(gt.lpep_dropoff_datetime AS DATE) < '2019-11-01'
+ 	GROUP BY "start_day"
+	ORDER BY "max_trip_day" DESC;
+
+ANS: 95.78 miles

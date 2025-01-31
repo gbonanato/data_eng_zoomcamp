@@ -15,7 +15,9 @@ def main(params):
     table_name = params.table_name
     db = params.db
     url = params.url
-    csv_name = 'output_green.csv'
+    csv_name = 'output_green_zone.csv'
+
+    print('TESTE')
 
     os.system(f'wget {url} -O {csv_name}')  # Downloads data
 
@@ -25,11 +27,13 @@ def main(params):
     #     with open(csv_name, 'wb') as f_out:
     #         shutil.copyfileobj(f_in, f_out)
 
-    engine = create_engine(f"postgresql://{user}:{password}@{db}:{port}/{table_name}")
+    engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{db}")
+    print(engine.connect())
+
     iter_df = pd.read_csv(csv_name, iterator=True, chunksize=100000)
     df = next(iter_df)
-    df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
-    df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
+    # df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
+    # df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
     df.head(0).to_sql(name=table_name, con=engine, if_exists='replace')
     df.to_sql(name=table_name, con=engine, if_exists='append')
 
@@ -38,8 +42,8 @@ def main(params):
             start_time = time()
 
             df = next(iter_df)
-            df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
-            df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
+            # df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
+            # df['lpep_dropoff_datetime'] = pd.to_datetime(df['lpep_dropoff_datetime'])
 
             df.to_sql(name=table_name, con=engine, if_exists='append')
 

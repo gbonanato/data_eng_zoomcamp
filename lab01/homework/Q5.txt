@@ -1,0 +1,13 @@
+SELECT
+	SUM(gt.total_amount) as "total_amount",
+	CAST(gt.lpep_dropoff_datetime AS DATE) as "start_day",
+	gt."PULocationID" as "pickup_location",
+	lookup."Zone"
+	FROM green_taxi_trips as gt 
+	LEFT JOIN green_taxi_zone_lookup as lookup ON 
+	gt."PULocationID" = lookup."LocationID"
+	WHERE CAST(gt.lpep_pickup_datetime AS DATE) = '2019-10-18'
+ 	GROUP BY "start_day", "pickup_location", lookup."Zone"
+	ORDER BY "total_amount" DESC;
+
+ANS: East Harlem North, East Harlem South, Morningside Heights
