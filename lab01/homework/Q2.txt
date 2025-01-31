@@ -1,4 +1,4 @@
-The connection should be made to hostname 'db' and port '5432'. The reason for that is thaton a docker compose
+ANS: The connection should be made to hostname 'db' and port '5432'. The reason for that is thaton a docker compose
 network, the name used for containers communication is the service name on the yaml file, and not the container_name.
 The container_name is only used as the name of the container for the host system.
 
