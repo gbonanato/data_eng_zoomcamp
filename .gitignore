@@ -4,7 +4,13 @@
 # Postgres local volume on host
 /lab01/ny_taxi_postgres_data
 
+/lab02/dags/*
+/lab02/plugins/*
+/lab02/logs/*
+
 # local csv files
 /lab01/*.csv
 
 *.csv
+
+*.env
