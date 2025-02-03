@@ -1,0 +1,11 @@
+06714541b712
+ ▶ Log message source details
+[2025-02-02, 19:42:43 UTC] {local_task_job_runner.py:123} ▶ Pre task execution logs
+[2025-02-02, 19:42:46 UTC] {logging_mixin.py:190} INFO - file size for output_2020_12.csv is:  134481400  bytes
+[2025-02-02, 19:42:46 UTC] {python.py:240} INFO - Done. Returned value was: True
+[2025-02-02, 19:42:46 UTC] {taskinstance.py:340} ▶ Post task execution logs
+
+Log from airflow. Defined for the DAG print statement with filesize:
+
+    file_size = os.path.getsize(csv_name)
+    print(f"file size for {csv_name} is: ", file_size, " bytes")

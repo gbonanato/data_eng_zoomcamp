@@ -1,0 +1,1 @@
+From course and online sources (https://kestra.io/docs/workflow-components/triggers/schedule-trigger)

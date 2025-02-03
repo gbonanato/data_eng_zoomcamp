@@ -1,0 +1,5 @@
+# Runs airflow
+docker-compose -p airflow2025 up -d
+
+# Runs DB
+docker-compose -f docker-compose-lesson1.yaml up
